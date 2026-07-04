@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>资讯 - 成都境作建筑设计有限责任公司</title>
+<meta name="keywords" content="境作建筑,建筑设计,酒店设计,民宿设计">
+<meta name="description" content="成都境作建筑设计有限责任公司">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<style>
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f5f5f0; color: #333; line-height: 1.6; font-size: 14px;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ===== Left Sidebar ===== */
+.sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; width: 220px; background: #fff;
+  z-index: 100; box-shadow: 1px 0 8px rgba(0,0,0,0.04); overflow-y: auto; overflow-x: hidden;
+  display: flex; flex-direction: column;
+}
+.sidebar-logo {
+  padding: 28px 20px 18px; border-bottom: 1px solid #f2f2f2;
+}
+.sidebar-logo img { width: 120px; height: auto; }
+.sidebar-nav { padding: 12px 0; flex: 1; }
+.sidebar-nav > li { position: relative; }
+.sidebar-nav > li > a {
+  display: block; padding: 12px 24px; font-size: 13px; color: #555;
+  font-weight: 500; letter-spacing: 1px; transition: all 0.2s;
+  position: relative; white-space: nowrap;
+}
+.sidebar-nav > li > a:hover { color: #222; background: #fafaf7; }
+.sidebar-nav > li > a .arrow {
+  float: right; font-size: 10px; color: #ccc; transition: transform 0.3s; margin-top: 2px;
+}
+.sidebar-nav > li.open > a .arrow { transform: rotate(90deg); }
+.sidebar-nav .subnav {
+  max-height: 0; overflow: hidden; transition: max-height 0.35s ease; background: #fafaf7;
+}
+.sidebar-nav > li.open .subnav { max-height: 300px; }
+.sidebar-nav .subnav a {
+  display: block; padding: 8px 40px; font-size: 12px; color: #777;
+  transition: all 0.15s;
+}
+.sidebar-nav .subnav a:hover { color: #222; background: #f0f0eb; }
+.sidebar-nav .subnav a.active { color: #222; font-weight: 500; }
+
+/* ===== Main Content ===== */
+.main-content {
+  width: calc(100% - 220px); margin-left: 220px; flex: 1; min-height: 100vh; overflow-x: hidden;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb-bar {
+  padding: 18px 40px; background: #fff; border-bottom: 1px solid #eee;
+  font-size: 13px; color: #999; display: flex; align-items: center;
+}
+.breadcrumb-bar a { color: #666; }
+.breadcrumb-bar a:hover { color: #222; }
+.breadcrumb-bar .sep { margin: 0 8px; color: #ccc; }
+.breadcrumb-bar .current { color: #222; font-weight: 500; }
+
+/* ===== Footer ===== */
+.footer {
+  width: 100%; background: #fff; border-top: 1px solid #eee;
+  text-align: center; padding: 24px 40px; font-size: 12px; color: #888;
+}
+.footer a { color: #888; }
+.footer .divider { margin: 0 8px; color: #ddd; }
+
+
+/* ===== News Card List ===== */
+.news-card-list { max-width: 860px; margin: 0 auto; }
+.news-card {
+  display: flex; align-items: flex-start; gap: 24px;
+  padding: 28px 0; border-bottom: 1px solid #eee;
+  transition: all 0.25s ease; position: relative; cursor: pointer;
+  border-left: 3px solid transparent; padding-left: 20px; margin-left: -3px;
+}
+.news-card:hover {
+  transform: translateY(-2px);
+  border-left-color: #333;
+  border-bottom-color: #ddd;
+}
+.news-card .nc-date {
+  flex-shrink: 0; width: 56px; height: 56px;
+  background: #222; color: #fff; border-radius: 6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: 600; line-height: 1.2;
+}
+.news-card .nc-date .nc-day { font-size: 20px; }
+.news-card .nc-date .nc-month { font-size: 11px; opacity: 0.85; }
+.news-card .nc-body { flex: 1; min-width: 0; }
+.news-card .nc-title {
+  font-size: 18px; font-weight: 600; color: #222; margin-bottom: 8px;
+  display: block; transition: color 0.2s;
+}
+.news-card .nc-title:hover { color: #666; }
+.news-card .nc-summary {
+  font-size: 14px; color: #888; line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-card-empty { text-align: center; color: #999; padding: 60px 0; font-size: 15px; }
+
+@media (max-width: 1024px) {
+  .news-card-list { max-width: 100%; }
+  .news-card { padding: 20px 0; gap: 16px; padding-left: 12px; }
+  .news-card .nc-title { font-size: 16px; }
+}
+
+/* ===== Section Header ===== */
+.section-header { text-align: center; margin-bottom: 40px; padding: 40px 20px 0; }
+.section-header h1 { font-size: 26px; font-weight: 700; color: #222; margin-bottom: 8px; }
+.section-header .sub { font-size: 13px; color: #999; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ===== Hamburger ===== */
+.hamburger { display: none; }
+@media (max-width: 1024px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 99;
+  }
+  .sidebar-overlay.show { display: block; }
+  .main-content { width: 100%; margin-left: 0; padding-top: 56px; }
+  .breadcrumb-bar { display: none; }
+  .hamburger {
+    display: flex; position: fixed; top: 0; left: 0; right: 0; height: 56px;
+    background: #fff; z-index: 98; align-items: center; padding: 0 16px;
+    border-bottom: 1px solid #eee;
+  }
+  .hamburger .logo-mobile { height: 28px; }
+  .hamburger .btn-toggle {
+    margin-left: auto; width: 36px; height: 36px; border: none; background: none;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; cursor: pointer;
+  }
+  .hamburger .btn-toggle span {
+    display: block; width: 22px; height: 2px; background: #333; transition: all 0.3s;
+  }
+  .hamburger .btn-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .hamburger .btn-toggle.open span:nth-child(2) { opacity: 0; }
+  .hamburger .btn-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+  .footer { width: 100%; padding: 20px 16px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="/"><img src="/style/images/1507717526771.png" alt="境作建筑"></a>
+  </div>
+  <div class="sidebar-contact">
+    <div class="phone">15756226430</div>
+    <div class="email"><a href="mailto:247153593@qq.com">247153593@qq.com</a></div>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="/">首页<span class="arrow">&#9654;</span></a></li>
+    <li>
+      <a href="javascript:;">项目 / Project<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/xm/jd/">酒店</a></li>
+        <li><a href="/xm/ms/">民宿</a></li>
+        <li><a href="/xm/qt/">其它</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">关于 / About<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/gy/gsjj/">公司简介</a></li>
+        <li><a href="/gy/jztd/">境作团队</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">业务 / Service<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/yw/jdkjsj/">酒店空间设计</a></li>
+        <li><a href="/yw/mskjsj/">民宿空间设计</a></li>
+        <li><a href="/yw/qtkjsj/">其他空间设计</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">资讯 / News<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/zx/gsxw/">公司新闻</a></li>
+        <li><a href="/zx/hydt/">行业动态</a></li>
+        <li><a href="/zx/hzmt/">合作媒体</a></li>
+      </ul>
+    </li>
+    <li><a href="/gy/lxfs/">联系 / Contact<span class="arrow">&#9654;</span></a></li>
+  </ul>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="hamburger" id="hamburger">
+  <img src="/style/images/logo.png" alt="境作建筑" class="logo-mobile" onerror="this.style.display='none'">
+  <button class="btn-toggle"><span></span><span></span><span></span></button>
+</div>
+
+<main class="main-content">
+
+<div class="breadcrumb-bar">
+  <a href="/">首页</a><span class="sep">&gt;</span><span class="current">资讯中心</span>
+</div>
+
+<section class="section">
+<div class="section-header">
+  <h1>资讯中心</h1>
+  <div class="sub">News Center</div>
+</div>
+  <div class="news-card-list">
+    <a href="/zx/gsxw/63.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">第十七届中国建筑企业高峰论坛筹备会于兰州召开</div>
+        <div class="nc-summary">第十七届中国建筑企业高峰论坛筹备会于兰州召开</div>
+      </div>
+    </a>
+    <a href="/zx/gsxw/62.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">甘肃省首个装配式示范工程荣获“中国钢结构金奖”</div>
+        <div class="nc-summary">甘肃省首个装配式示范工程荣获“中国钢结构金奖”</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/69.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">建筑设计师的二次创业，尖叫设计“陷入”一场家居品牌突围赛</div>
+        <div class="nc-summary">建筑设计师的二次创业，尖叫设计“陷入”一场家居品牌突围赛</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/68.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">浅谈住宅户型设计心得</div>
+        <div class="nc-summary">浅谈住宅户型设计心得</div>
+      </div>
+    </a>
+    <a href="/zx/gsxw/61.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">“数字中国”时代——建筑业的数字化转型</div>
+        <div class="nc-summary">“数字中国”时代——建筑业的数字化转型</div>
+      </div>
+    </a>
+    <a href="/zx/gsxw/60.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">第四届全国建筑业企业文化建设经验交流会在武汉召开</div>
+        <div class="nc-summary">第四届全国建筑业企业文化建设经验交流会在武汉召开</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/67.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">商业综合体需要整体“设计”</div>
+        <div class="nc-summary">商业综合体需要整体“设计”</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/66.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">腾讯将联合建筑设计公司NBBJ打造网络城市</div>
+        <div class="nc-summary">腾讯将联合建筑设计公司NBBJ打造网络城市</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/65.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">世界房产家居设计师都想认识的建筑风水师无量子</div>
+        <div class="nc-summary">世界房产家居设计师都想认识的建筑风水师无量子</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/64.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">建筑界的“预制菜” ：装配式建筑的前世今生</div>
+        <div class="nc-summary">建筑界的“预制菜” ：装配式建筑的前世今生</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/12.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">我国城市地下空间利用现状与施工技术创新</div>
+        <div class="nc-summary">我国城市地下空间利用现状与施工技术创新</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/11.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">加速谋篇布局走出去增创国际竞争新动能</div>
+        <div class="nc-summary">加速谋篇布局走出去增创国际竞争新动能</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/10.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">互联网时代江苏建筑业的创新发展</div>
+        <div class="nc-summary">互联网时代江苏建筑业的创新发展</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/9.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">探索“放管服”变革创新 助推民营建企高质量发展</div>
+        <div class="nc-summary">探索“放管服”变革创新 助推民营建企高质量发展</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/8.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">新时代建筑业企业创新变革之路</div>
+        <div class="nc-summary">新时代建筑业企业创新变革之路</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/7.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">变革力•竞合力•影响力——凝聚行业高质量发展合力</div>
+        <div class="nc-summary">变革力•竞合力•影响力——凝聚行业高质量发展合力</div>
+      </div>
+    </a>
+    <a href="/zx/hydt/6.html" class="news-card">
+      <div class="nc-date"><div class="nc-day">06</div><div class="nc-month">4月</div></div>
+      <div class="nc-body">
+        <div class="nc-title">幕府山下·建华装饰混凝土座椅“绽放”南京最长滨江樱花道</div>
+        <div class="nc-summary">幕府山下·建华装饰混凝土座椅“绽放”南京最长滨江樱花道</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>COPYRIGHT (&copy;) 2021 成都境作建筑设计有限责任公司. <span class="divider">|</span> <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="nofollow">蜀ICP备2021007531号-1</a> <span class="divider">|</span> 技术支持：<a href="https://wwww.shunking.cn" target="_blank">舜王科技</a></span>
+</footer>
+
+</main>
+
+
+<script>
+(function(){
+  document.querySelectorAll('.sidebar-nav > li').forEach(function(li) {
+    var link = li.querySelector('a');
+    var subnav = li.querySelector('.subnav');
+    if (!subnav) return;
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = li.classList.contains('open');
+      document.querySelectorAll('.sidebar-nav > li.open').forEach(function(l) { l.classList.remove('open'); });
+      if (!isOpen) li.classList.add('open');
+    });
+  });
+
+  var sidebar = document.getElementById('sidebar');
+  var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var hamburger = document.getElementById('hamburger');
+
+  function openSidebar() { sidebar.classList.add('open'); sidebarOverlay.classList.add('show'); hamburger.classList.add('open'); }
+  function closeSidebar() { sidebar.classList.remove('open'); sidebarOverlay.classList.remove('show'); hamburger.classList.remove('open'); }
+
+  hamburger.addEventListener('click', function() {
+    sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+  });
+  sidebarOverlay.addEventListener('click', closeSidebar);
+
+  (function(){
+    var path = window.location.pathname;
+    var navLinks = document.querySelectorAll('.sidebar-nav a');
+    navLinks.forEach(function(a){ a.classList.remove('active'); });
+    var subnavLinks = document.querySelectorAll('.sidebar-nav .subnav a');
+    var matched = null;
+    subnavLinks.forEach(function(a){
+      var href = a.getAttribute('href');
+      if (href && href !== '/' && path.indexOf(href) !== -1) {
+        a.classList.add('active');
+        matched = a;
+        var parentLi = a.closest('.sidebar-nav > li');
+        if (parentLi) parentLi.classList.add('open');
+      }
+    });
+    if (!matched) {
+      var topLinks = document.querySelectorAll('.sidebar-nav > li > a');
+      topLinks.forEach(function(a){
+        var href = a.getAttribute('href');
+        if (href === '/') {
+          if (path === '/' || path === '/index.html') a.classList.add('active');
+        }
+      });
+    }
+  })();
+})();
+</script>
+
+</body>
+</html>

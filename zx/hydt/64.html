@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>建筑界的“预制菜” ：装配式建筑的前世今生 - 成都境作建筑设计有限责任公司</title>
+<meta name="keywords" content="境作建筑,建筑设计,酒店设计,民宿设计">
+<meta name="description" content="成都境作建筑设计有限责任公司">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f5f5f0; color: #333; line-height: 1.6; font-size: 14px;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+.clearfix::after { content: ""; display: table; clear: both; }
+.ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ===== Left Sidebar ===== */
+.sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; width: 220px; background: #fff;
+  border-right: 1px solid #e8e8e0; z-index: 1000; display: flex; flex-direction: column;
+  overflow-y: auto; padding: 40px 0 30px 0;
+}
+.sidebar-logo { padding: 0 30px 30px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+.sidebar-logo img { width: 160px; height: auto; }
+.sidebar-contact { padding: 0 30px; margin-bottom: 30px; }
+.sidebar-contact .phone { font-size: 16px; font-weight: 600; color: #222; letter-spacing: 0.5px; }
+.sidebar-contact .email { font-size: 12px; color: #888; margin-top: 4px; }
+.sidebar-contact .email a { color: #888; text-decoration: underline; }
+
+/* Navigation */
+.sidebar-nav { flex: 1; padding: 0; }
+.sidebar-nav li { position: relative; }
+.sidebar-nav > li > a {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 30px; color: #555; font-size: 14px; letter-spacing: 1px;
+  transition: all 0.25s; border-left: 3px solid transparent;
+}
+.sidebar-nav > li > a:hover,
+.sidebar-nav > li > a.active { color: #222; background: #f9f9f5; border-left-color: #333; }
+.sidebar-nav .arrow { font-size: 10px; transition: transform 0.3s; color: #bbb; }
+.sidebar-nav li.open > a .arrow { transform: rotate(180deg); }
+
+/* Subnav */
+.sidebar-nav .subnav { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.sidebar-nav li.open .subnav { max-height: 200px; }
+.sidebar-nav .subnav a {
+  display: block; padding: 10px 30px 10px 48px; color: #888; font-size: 13px;
+  transition: all 0.2s;
+}
+.sidebar-nav .subnav a:hover { color: #222; background: #fafaf7; }
+.sidebar-nav .subnav a.active { color: #222; font-weight: 500; }
+
+/* ===== Main Content ===== */
+.main-content {
+  width: calc(100% - 220px); margin-left: 220px; flex: 1; min-height: 100vh; overflow-x: hidden;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb-bar {
+  padding: 18px 40px; background: #fff; border-bottom: 1px solid #eee;
+  font-size: 13px; color: #999; display: flex; align-items: center;
+}
+.breadcrumb-bar a { color: #666; }
+.breadcrumb-bar a:hover { color: #222; }
+.breadcrumb-bar .sep { margin: 0 8px; color: #ccc; }
+.breadcrumb-bar .current { color: #222; font-weight: 500; }
+
+/* ===== Section Common ===== */
+.section { padding: 60px 40px; }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header .title { font-size: 26px; font-weight: 300; color: #222; letter-spacing: 4px; }
+.section-header .subtitle { font-size: 13px; color: #aaa; letter-spacing: 2px; margin-top: 8px; text-transform: uppercase; }
+.section-header .divider { width: 40px; height: 2px; background: #333; margin: 12px auto 0; }
+
+/* ===== Page Title Banner ===== */
+.page-banner {
+  position: relative; height: 200px; background-size: cover; background-position: center;
+  display: flex; align-items: center; justify-content: center;
+}
+.page-banner .banner-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.page-banner .banner-title { position: relative; z-index: 1; color: #fff; font-size: 28px; font-weight: 300; letter-spacing: 6px; }
+
+/* ===== Project Grid (list pages) ===== */
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.project-card { position: relative; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
+.project-card .card-img { width: 100%; height: 100%; }
+.project-card .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.project-card:hover .card-img img { transform: scale(1.05); }
+.project-card .card-overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,0);
+  display: flex; align-items: center; justify-content: center; transition: background 0.4s;
+}
+.project-card:hover .card-overlay { background: rgba(0,0,0,0.55); }
+.project-card .card-title {
+  font-size: 17px; color: #fff; font-weight: 500; opacity: 0; transform: translateY(8px);
+  transition: all 0.4s; text-align: center; padding: 0 20px;
+}
+.project-card:hover .card-title { opacity: 1; transform: translateY(0); }
+
+/* ===== Gallery (detail pages) ===== */
+.gallery-wrap { max-width: 1100px; margin: 0 auto; }
+.gallery-title { font-size: 22px; font-weight: 400; color: #222; text-align: center; letter-spacing: 3px; margin-bottom: 40px; }
+.gallery-list { display: flex; flex-direction: column; gap: 24px; }
+.gallery-list img { width: 100%; height: auto; display: block; }
+
+/* ===== About / Contact Split Layout ===== */
+.split-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh; }
+.split-layout .split-left { background-size: cover; background-position: center; min-height: 350px; }
+.split-layout .split-right { background: #fff; display: flex; align-items: center; justify-content: center; padding: 60px 48px; }
+.split-right .split-text { max-width: 460px; line-height: 1.9; font-size: 15px; color: #555; }
+.split-right .split-text h3 { font-size: 22px; font-weight: 500; color: #222; margin-bottom: 20px; letter-spacing: 3px; }
+.split-right .split-text p { margin-bottom: 14px; }
+
+/* ===== Contact Info Cards ===== */
+.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+.contact-card { background: #fff; padding: 36px 28px; text-align: center; transition: all 0.3s; }
+.contact-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-4px); }
+.contact-card .cc-icon { font-size: 28px; color: #888; margin-bottom: 14px; }
+.contact-card .cc-label { font-size: 13px; color: #aaa; letter-spacing: 1px; margin-bottom: 8px; }
+.contact-card .cc-value { font-size: 16px; color: #333; line-height: 1.6; }
+
+/* ===== Service Cards (业务范围) ===== */
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card { background: #fff; overflow: hidden; transition: background 0.35s, box-shadow 0.35s; }
+.service-card:hover { background: #222; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.service-card .card-img { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+.service-card .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.service-card:hover .card-img img { transform: scale(1.05); }
+.service-card .card-body { padding: 24px; }
+.service-card .card-index { font-size: 36px; font-weight: 300; color: #ddd; line-height: 1; margin-bottom: 8px; transition: color 0.35s; }
+.service-card:hover .card-index { color: rgba(255,255,255,0.12); }
+.service-card .card-title { font-size: 18px; font-weight: 500; color: #222; transition: color 0.35s; }
+.service-card:hover .card-title { color: #fff; }
+.service-card .card-subtitle { font-size: 12px; color: #aaa; margin-top: 4px; transition: color 0.35s; }
+.service-card:hover .card-subtitle { color: rgba(255,255,255,0.5); }
+.service-card .card-desc { font-size: 13px; color: #777; margin-top: 12px; line-height: 1.7; transition: color 0.35s; }
+.service-card:hover .card-desc { color: rgba(255,255,255,0.65); }
+
+/* ===== Team Detail ===== */
+.team-detail { display: grid; grid-template-columns: 420px 1fr; gap: 50px; max-width: 1000px; margin: 0 auto; align-items: start; }
+.team-detail .td-img img { width: 100%; height: auto; }
+.team-detail .td-info {}
+.team-detail .td-name { font-size: 26px; font-weight: 400; color: #222; letter-spacing: 3px; }
+.team-detail .td-role { font-size: 14px; color: #999; margin-top: 6px; letter-spacing: 1px; margin-bottom: 24px; }
+.team-detail .td-bio { font-size: 15px; color: #555; line-height: 1.9; }
+.team-detail .td-bio p { margin-bottom: 12px; }
+
+/* ===== Team List Cards ===== */
+.team-carousel { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 20px; }
+.team-carousel::-webkit-scrollbar { display: none; }
+.team-carousel-track { display: flex; gap: 24px; padding: 0 20px 10px; width: max-content; }
+.team-card { flex-shrink: 0; width: 300px; background: #fff; border-radius: 8px; overflow: hidden; text-align: center; padding: 32px 24px; transition: transform 0.35s, box-shadow 0.35s; box-shadow: 0 2px 12px rgba(0,0,0,0.04); cursor: pointer; }
+.team-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.team-card .tc-img { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 18px; }
+.team-card .tc-img img { width: 100%; height: 100%; object-fit: cover; }
+.team-card .tc-name { font-size: 18px; font-weight: 500; color: #222; letter-spacing: 1px; }
+.team-card .tc-role { font-size: 12px; color: #999; margin-top: 6px; letter-spacing: 1px; }
+.team-card .tc-desc { font-size: 13px; color: #777; margin-top: 14px; line-height: 1.7; text-align: left; }
+
+/* ===== News List ===== */
+.news-list { max-width: 800px; margin: 0 auto; }
+.news-list-item { padding: 20px 0; border-bottom: 1px solid #e8e8e0; display: flex; gap: 20px; align-items: flex-start; transition: background 0.2s; }
+.news-list-item:hover { background: #fafaf7; margin: 0 -20px; padding: 20px; }
+.news-list-item .nl-date { flex-shrink: 0; width: 90px; text-align: center; padding-top: 2px; }
+.news-list-item .nl-date .day { font-size: 28px; font-weight: 300; color: #999; line-height: 1; }
+.news-list-item .nl-date .month { font-size: 12px; color: #bbb; letter-spacing: 1px; }
+.news-list-item .nl-info { flex: 1; }
+.news-list-item .nl-title { font-size: 16px; color: #333; font-weight: 500; margin-bottom: 4px; display: block; }
+.news-list-item .nl-title:hover { color: #222; }
+.news-list-item .nl-cat { font-size: 11px; color: #bbb; display: inline-block; background: #f5f5f0; padding: 2px 8px; border-radius: 2px; }
+
+/* ===== Article Detail ===== */
+.article-detail { max-width: 720px; margin: 0 auto; }
+.article-detail .ad-title { font-size: 26px; font-weight: 400; color: #222; text-align: center; letter-spacing: 2px; line-height: 1.4; margin-bottom: 12px; }
+.article-detail .ad-meta { text-align: center; font-size: 13px; color: #bbb; margin-bottom: 40px; }
+.article-detail .ad-body { font-size: 15px; color: #444; line-height: 2; }
+.article-detail .ad-body p { margin-bottom: 16px; }
+.article-detail .ad-body img { margin: 20px auto; max-width: 100%; height: auto; }
+
+/* ===== Pagination ===== */
+.pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
+.pagination a, .pagination span { display: inline-block; padding: 8px 16px; background: #fff; color: #666; font-size: 14px; transition: all 0.2s; border: 1px solid #e8e8e0; }
+.pagination a:hover { background: #222; color: #fff; border-color: #222; }
+.pagination span.current { background: #222; color: #fff; border-color: #222; }
+
+/* ===== Footer ===== */
+.footer {
+  width: 100%; background: #fff; border-top: 1px solid #eee;
+  text-align: center; padding: 24px 40px; font-size: 12px; color: #888;
+}
+.footer a { color: #888; }
+.footer .divider { margin: 0 8px; color: #ddd; }
+
+/* ===== Mobile ===== */
+.mobile-header { display: none; }
+@media (max-width: 1024px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.35s; width: 260px; }
+  .sidebar.open { transform: translateX(0); }
+  .mobile-header {
+    display: flex; align-items: center; justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; height: 56px; background: #fff;
+    border-bottom: 1px solid #eee; z-index: 1001; padding: 0 20px;
+  }
+  .mobile-header .hamburger {
+    width: 28px; height: 20px; position: relative; cursor: pointer; display: flex;
+    flex-direction: column; justify-content: space-between;
+  }
+  .mobile-header .hamburger span { display: block; height: 2px; background: #333; transition: all 0.3s; }
+  .mobile-header .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .mobile-header .hamburger.open span:nth-child(2) { opacity: 0; }
+  .mobile-header .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  .mobile-header .mobile-logo { font-size: 16px; font-weight: 500; letter-spacing: 2px; color: #222; }
+  .main-content { width: 100%; margin-left: 0; padding-top: 56px; }
+  .footer { width: 100%;  }
+  .section { padding: 40px 20px; }
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-grid { grid-template-columns: 1fr; }
+  .split-layout { grid-template-columns: 1fr; }
+  .split-layout .split-left { min-height: 280px; }
+  .split-layout .split-right { padding: 40px 24px; }
+  .team-detail { grid-template-columns: 1fr; gap: 30px; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .sidebar-overlay { display: none; }
+  .sidebar-overlay.show { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999; }
+}
+@media (max-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Mobile Header -->
+<div class="mobile-header">
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="mobile-logo">境作建筑</div>
+  <div style="width:28px"></div>
+</div>
+
+<!-- Left Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="/"><img src="/style/images/1507717526771.png" alt="境作建筑"></a>
+  </div>
+  <div class="sidebar-contact">
+    <div class="phone">15756226430</div>
+    <div class="email"><a href="mailto:247153593@qq.com">247153593@qq.com</a></div>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="/">首页<span class="arrow">&#9654;</span></a></li>
+    <li>
+      <a href="javascript:;">项目 / Project<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/xm/jd/">酒店</a></li>
+        <li><a href="/xm/ms/">民宿</a></li>
+        <li><a href="/xm/qt/">其它</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">关于 / About<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/gy/gsjj/">公司简介</a></li>
+        <li><a href="/gy/jztd/">境作团队</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">业务 / Service<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/yw/jdkjsj/">酒店空间设计</a></li>
+        <li><a href="/yw/mskjsj/">民宿空间设计</a></li>
+        <li><a href="/yw/qtkjsj/">其他空间设计</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">资讯 / News<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/zx/gsxw/">公司新闻</a></li>
+        <li><a href="/zx/hydt/">行业动态</a></li>
+        <li><a href="/zx/hzmt/">合作媒体</a></li>
+      </ul>
+    </li>
+    <li><a href="/gy/lxfs/">联系 / Contact<span class="arrow">&#9654;</span></a></li>
+  </ul>
+</aside>
+
+<main class="main-content">
+
+<div class="breadcrumb-bar">
+  <a href="/">首页</a><span class="sep">></span><a href="/zx/">资讯</a><span class="sep">></span><a href="/zx/hydt/">行业动态</a><span class="sep">></span><span class="current">建筑界的“预制菜” ：装配式建筑的前世今生</span>
+</div>
+
+<section class="section">
+  <div class="article-detail">
+    <h1 class="ad-title">建筑界的“预制菜” ：装配式建筑的前世今生</h1>
+    <div class="ad-meta">境作建筑 · 新闻资讯</div>
+    <div class="ad-body">
+      <p>什么是装配式建筑？这种建筑方式，是将构件在工厂进行标准化批量预制后，运输到施工现场进行拼装，与其他构件可靠连接，最终建成完工。如果把建房子类比为厨师做大餐，那装配式建筑就好比先把食材（建筑构件）在中央厨房（工厂）进行预处理，再运到门店厨房（施工现场）进行烹饪（拼装）。以前苏联大板建筑为原型的俄罗斯方块游戏PNLK装配式建筑主要包括预制装配式混凝土结构（PC，Precast Concrete）、钢结构（PS，Precast Steel）以及现代木结构建筑，被普遍认为是现代工业化生产方式的代表。01从古希腊庙宇到榫卯结构木屋，装配式建筑不是新概念无论是自然界还是人类历史中，&ldquo;预制&rdquo;、&ldquo;装配&rdquo;的概念从不新鲜。装配式建筑，也可称为建筑界的乐高在澳大利亚树林中，雄园丁鸟会利用小树枝搭建、装饰求偶亭吸引雌鸟，这一充满智慧和美感的行为让它们被誉为&ldquo;鸟类建筑家&ldquo;。对人类而言，早在农业出现前就有采集狩 猎者利用兽皮、树干搭建房屋；古希腊、古埃及的庙宇宫殿，均是在加工场将石材凿好后运输至现场安装搭建。我国古代的木质梁柱体系是今天框架建筑的原型，近代著名建筑学家梁思成在破译《营造法式》时发现古代木结构已经有了高度标准化的设计概念，即所谓&ldquo;凡构屋之制，皆以材为祖&rdquo;。此类传统木构房屋使用模数化的、预先制造的木材部件，无需连接材料，还不易受到地震破坏。1830年，为实现海外殖民地定居点的快速建设，英国木匠曼宁（John Manning）借助造船业基础，发明了在英国制造并由轮船运往世界各地建造简易的木框架房屋（Manning Portable Cottage）。19世纪中期，英国工程师优化了用生铁制造低碳钢的过程，从而使钢铁材料以轧制的形式普遍用于之后的框架结构中，现代钢结构也因此具备了天然的预制与装配属性。任何新事物的诞生都会经历一个概念懵懂期，彼时的人们尚未有清晰的&ldquo;装配式技术&rdquo;认知，但已经意识到&ldquo;预制构配件+现场加工&rdquo;的建造方式所带来的便利性。02城市的时代记忆，装配式建筑现代化世界第一座大型现代建筑，其实也是装配式建筑。1851年英国世界博览会前夕，现有的古典建筑方案不仅难以提供足够的展馆空间，甚至不能在博览会开幕前如期建成，欧洲各国建筑师纷纷出谋献策。无奈之下的维多利亚女王采用了花匠的方案：用铸铁和玻璃打造一个大型&ldquo;花房&rdquo;。铸铁梁柱在工厂制作，玻璃幕墙在按玻璃工厂最大的规格制作，运到现场装配，最终6个月内完成了建设，解决了大空间和工期紧的难题。这是第一座大型现代建筑，也是装配式建筑的开山之作，由于建筑效果美观，展馆获得了&ldquo;水晶宫&rdquo;（The Crystal Palace）的美誉。1921年，法国建筑大师柯布西耶于其著作《走向新建筑》中第一次提出了&ldquo;像造汽车一样&rdquo;去&ldquo;批量复制&rdquo;建筑的想法，实用主义建筑设计逐渐流行。1931年，纽约帝国大厦竣工。这座被誉为&ldquo;现代七大工程奇迹&rdquo;之一的摩天大楼也采用了装配式工艺，采用&ldquo;钢结构+石材幕墙&rdquo;设计，全部工期仅410天，平均4天一层楼。二战后，装配式建筑在全球市场迎来高速发展期。一方面，战后经济复苏时代，城市亟待重建但劳动力严重不足，城市化不断加速造成住房短缺；另一方面，第三次工业革命为装配式建筑的标准化、模块化提供了近乎完美的温床。速度快、节省人力、可批量的优势，让装配式技术在战后重建过程中发挥了重要作用。1954年，前苏联在著名领导人赫鲁晓夫的要求之下，开发了一种可&ldquo;复制粘贴&rdquo;的建筑模板：预制件均为工厂流水线生产的标准件，采用统一的工业化建造，所有楼房统一规格，成本低廉。&ldquo;赫鲁晓夫楼&rdquo;很大程度上奠定了早期预制装配式建筑规模化的基础。两年后，我国提出&ldquo;建筑工业化&rdquo;要求，1959年，我国最早的装配式建筑&mdash;&mdash;北京民族饭店，10个月顺利完工，用于人民代表大会接待。引入苏联装配式混凝土大板建筑后，我国装配式建筑迎来第一次发展热潮。为了实现&ldquo;居者有其屋&rdquo;的共产理想，&ldquo;赫鲁晓夫楼&rdquo;也曾经遍布中国各处，成为时代记忆。许知远在《无根者之家》中回忆道：在北京，我第一次住进楼房，那种红色砖墙的五层楼房。日后我才知道，它也被称为&ldquo;赫鲁晓夫楼&rdquo;&hellip;&hellip;让我兴奋的是，卫生间与厨房都在小小的套间里，再不用夜半跑进院子外透风的厕所。美国最早的装配式混凝土高层住宅之一费城社会岭公寓（society hill towers），由著名建筑师贝聿铭设计，这也是一个代表性的旧城改造项目，利用装配式技术的低成本、高效率优势，来解决城市人口居住问题。1968年，&ldquo;住宅产业&rdquo;的概念开始在日本出现；1972年，著名的舱体大楼落地东京，该装配式建筑所有家具设备都实现了单元化，140个舱室错落有致，构思新奇，如同一座巨型&ldquo;乐高积木&rdquo;公寓。八九十年代的欧洲，为完成大规模住宅建设目标，预制混凝土大板体系被广泛应用于新住宅区，成就了一大批风格鲜明的建筑。同一时期，日本逐渐成为住宅产业化的标志性国家，构件生产的机械化、产品标准的固定化、建筑过程的精准化，使得日本在装配式建筑领域成为世界学习的对象。在我国，改革开放后的装配式建筑热潮并未持续，而是因为八十年末大量廉价劳动力涌入城市、商品混凝土兴起陷入尴尬。由于相关政策、标准体系的不完善，预制构件的产品规格较少；同时，技术手段的限制，使装配式建筑的保温、防水、隔音效果不理想，节点质量和抗震也有不足。现浇技术成为主流，装配式技术陷入暂时的沉寂。03双碳+数字化，装配式建筑的&ldquo;事业第二春&rdquo;数十年间，装配式建筑的节点质量、抗震能力得到了大幅度提升，上世纪的制约其发展的因素逐渐弱化。装配式建筑的优势开始显露：第一，从经济成本角度，预制构件、现场安装，可以减少建筑材料及相关设备的损耗和浪费；建造完成后，日常维护管理成本也更低。第二，更重要的，是装配式建筑的节能环保属性。装配技术的推广能减少施工现场的噪音、空气污染，控制建筑垃圾的产生；理想状态下，装配式建筑可以随主体施工同步实现装修一体化；最后，在回收阶段部分建筑材料可有效循环利用，减少污染、提高资源利用率。2013年住建部、发改委在头号文件《绿色建筑行动方案》中明确提出要推广预制装配式建筑体系，&ldquo;新型建筑工业化&rdquo;由此形成；并在随后几年间不断出台落地举措。去年，国家明确提出碳达峰和碳中和的实现时间，从顶层设计规范&ldquo;双碳&quot;目标。地产建筑行业规模大、占GDP比重高，同时也是碳排放最高的终端消费来源，传统建筑产业的转型升级已成必然。各类标准、扶持政策的相继完善，官方的大力扶持与引领，加上自身的&ldquo;低碳减碳&rdquo;特性，装配式建筑由此迎来了&ldquo;事业第二春&rdquo;，成为建筑工业化、绿色化的主抓手。作为&ldquo;绿色建筑行动&rdquo;中的&ldquo;天选之子&rdquo;，装配式技术可以说是建筑业多年以来最重要的技术变革。但绿色建筑不能仅关注结构的装配化，更需要从&ldquo;全生命周期&rdquo;的角度俯瞰，在每一环节做到节能、高效。建筑全生命周期中的设计、生产协调、物流优化等方面均已经受到数字化手段的帮助。火神山、雷神山医 院的&ldquo;大国速度&rdquo;，就是装配式建筑与BIM（Building Information Modeling）、5G云计算技术的结晶：采用标准化、模块化设计，通过BIM技术快速输出整体建设方案，避免后期的返工整改；运用装配式建筑技术，采用集装箱活动板房，安装便捷且整体性好，大大提高了施工进度。如果箱式板房是&ldquo;躯干&rdquo;，信息化系统则是&ldquo;血液&rdquo;。火神山医 院不是野 战医 院，信息化系统是其中很重要的一部分，尤其ICU的智能化、自动化建设工作。医 院还采用了智能化运维管理平台，依托5G、AI、物联网等技术研发了应急医 院智能化运维管理平台，实现了智慧安防及物流、远程会诊、&ldquo;零接触&rdquo;运维。而5G技术则实现了超过三千万人观看的现场直播，让五湖四海的我们为&ldquo;叉酱、呕泥酱&rdquo;等不间断打call。综合来看，普通工业建造向智能建造的数字化转型，可融合的技术有BIM技术、物联网技术、3D打印技术、人工智能技术等，主要体现在以下几方面：设计过程中建模与仿真智能化、协同化在驱动产业标准化的进程中，设计向来是核心环节。装配式建筑云平台「大乐装」聚焦PC市场，致力于推广云端软件驱动的互联网&ldquo;云制造&rdquo;，目前已发布了能实现&ldquo;一键建模、一键计算装配式表单、一键导出配套成果&rdquo;的SaaS化装配式设计云平台。施工过程中利用基于人工智能技术的机器人代替传统施工方式面对降本增效的的问题，智能机器人替代传统施工是理想的解决方案。智能建筑工业机器人开发公司「大界机器人」自主研发的工业软件Robim，能结合工业机械臂，实现3D打印、材料加工等自动化生产制造；胶囊工厂能实现预制与现场加工的有机结合，有效促进施工现场的智能化与数字化。管理过程中通过物联网技术日趋智能化无线射频识别技术（Radio Frequency Identification，RFID），俗称电子标签，在建筑行业已经得到了较广泛的应用。通过RFID技术对装配式预制构件进行编码，可实现构件制作、运输、管理及施工阶段的智能管理。运维过程中结合云计算和大数据技术通过对建筑空间的3D精细建模，利用云计算技术搭建服务平台，结合大数据分析、传感器监测及物联网搭建管理系统，进而达成全生命周期的建筑智慧化运维。智慧运维能实现对建筑空间、设备资产的科学管理，对潜在灾害进行评估和预判，让建筑达到能耗合理、舒适宜居的最佳使用状态。装配式建筑的成本与标准化、规模化程度息息相关，由于目前装配市场成熟度不高，在构件生产、运输管理及施工安装等环节的协同配合难度较大，使得现阶段成本高于现浇建筑；但随着人力成本提高、产业链发展，装配式建筑的成本将逐渐低于现浇建筑。根据相关机构测算，3-4年内将会迎来产业的爆发期。回望装配式建筑的起源与发展，工业革命、二战后、我国改革开放、全球节能减排&hellip;&hellip;几乎国内外近代史中每一个特殊历史节点，都会出现装配式建筑的身影，它的活跃与社会发展和需求紧密相关，具有超越建筑本身意义外的特殊社会属性。双山医 院的建设奇迹，证明了&ldquo;装配式+数字化&rdquo;智能建造所描绘的未来并不是触不可及。随着工作效率的提升、施工环境的改善，或许在某个绿色的未来，建房子真的就像搭积木一般，而城市就是居民们的&ldquo;大型沉浸式乐高公园&rdquo;。
+</div>
+
+</div>
+<div class="listWrap">
+<div class="postInfo">
+<p class="title">建筑界的“预制菜” ：装配式建筑的前世今生</p>
+</div>
+<!--<div id="listContent" class="listContent_post">
+<h3>相关内容</h3>
+<div class="item_tags">
+<a href="/tag/%25E5%25B1%2595%25E8%25A7%2588%25E8%25AE%25BE%25E8%25AE%25A1/" target="_blank">展览设计</a>
+<a href="/tag/%25E6%2596%2587%25E5%258C%2596%25E5%25BB%25BA%25E7%25AD%2591/" target="_blank">文化建筑</a>
+<a href="/tag/%25E5%258D%259A%25E7%2589%25A9%25E9%25A6%2586/" target="_blank">博物馆</a>
+</div>
+</div>--></p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span>COPYRIGHT (&copy;) 2021 成都境作建筑设计有限责任公司. <span class="divider">|</span> <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="nofollow">蜀ICP备2021007531号-1</a> <span class="divider">|</span> 技术支持：<a href="https://wwww.shunking.cn" target="_blank">舜王科技</a></span>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  // === Sidebar submenu toggle ===
+  document.querySelectorAll('.sidebar-nav > li').forEach(function(li) {
+    var link = li.querySelector('a');
+    var subnav = li.querySelector('.subnav');
+    if (!subnav) return;
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = li.classList.contains('open');
+      document.querySelectorAll('.sidebar-nav > li.open').forEach(function(l) { l.classList.remove('open'); });
+      if (!isOpen) li.classList.add('open');
+    });
+  });
+
+  // === Mobile sidebar ===
+  var sidebar = document.getElementById('sidebar');
+  var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var hamburger = document.getElementById('hamburger');
+
+  function openSidebar() { sidebar.classList.add('open'); sidebarOverlay.classList.add('show'); hamburger.classList.add('open'); }
+  function closeSidebar() { sidebar.classList.remove('open'); sidebarOverlay.classList.remove('show'); hamburger.classList.remove('open'); }
+
+  hamburger.addEventListener('click', function() {
+    sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+  });
+  sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // === Auto-highlight current nav based on URL path ===
+  (function(){
+    var path = window.location.pathname;
+    var navLinks = document.querySelectorAll('.sidebar-nav a');
+    
+    // Reset all
+    navLinks.forEach(function(a){ a.classList.remove('active'); });
+    
+    // Auto-open parent submenu
+    var subnavLinks = document.querySelectorAll('.sidebar-nav .subnav a');
+    var matched = null;
+    subnavLinks.forEach(function(a){
+      var href = a.getAttribute('href');
+      if (href && href !== '/' && path.indexOf(href) !== -1) {
+        a.classList.add('active');
+        matched = a;
+        // Open parent
+        var parentLi = a.closest('.sidebar-nav > li');
+        if (parentLi) parentLi.classList.add('open');
+      }
+    });
+    
+    // If no subnav matched, try top-level
+    if (!matched) {
+      var topLinks = document.querySelectorAll('.sidebar-nav > li > a');
+      topLinks.forEach(function(a){
+        var href = a.getAttribute('href');
+        if (href === '/') {
+          if (path === '/' || path === '/index.html') a.classList.add('active');
+        }
+      });
+    }
+  })();
+
+})();
+</script>
+
+</body>
+</html>

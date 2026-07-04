@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>成都境作建筑设计有限责任公司</title>
+<meta name="keywords" content="境作建筑,建筑设计,酒店设计,民宿设计,成都建筑设计">
+<meta name="description" content="成都境作建筑设计有限责任公司，专注于酒店民宿投资及设计咨询服务，从酒店选址、投资、以及设计施工一体化体系，已有数十年咨询经验。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f5f5f0; color: #333; line-height: 1.6; font-size: 14px;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+.clearfix::after { content: ""; display: table; clear: both; }
+.ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ===== Left Sidebar ===== */
+.sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; width: 220px; background: #fff;
+  border-right: 1px solid #e8e8e0; z-index: 1000; display: flex; flex-direction: column;
+  overflow-y: auto; padding: 40px 0 30px 0;
+}
+.sidebar-logo { padding: 0 30px 30px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+.sidebar-logo img { width: 160px; height: auto; }
+.sidebar-contact { padding: 0 30px; margin-bottom: 30px; }
+.sidebar-contact .phone { font-size: 16px; font-weight: 600; color: #222; letter-spacing: 0.5px; }
+.sidebar-contact .email { font-size: 12px; color: #888; margin-top: 4px; }
+.sidebar-contact .email a { color: #888; text-decoration: underline; }
+
+/* Navigation */
+.sidebar-nav { flex: 1; padding: 0; }
+.sidebar-nav li { position: relative; }
+.sidebar-nav > li > a {
+  display: flex; align-items: center; justify-content: space-between; 
+  padding: 14px 30px; color: #555; font-size: 14px; letter-spacing: 1px;
+  transition: all 0.25s; border-left: 3px solid transparent;
+}
+.sidebar-nav > li > a:hover,
+.sidebar-nav > li > a.active { color: #222; background: #f9f9f5; border-left-color: #333; }
+.sidebar-nav .arrow { font-size: 10px; transition: transform 0.3s; color: #bbb; }
+.sidebar-nav li.open > a .arrow { transform: rotate(180deg); }
+
+/* Subnav */
+.sidebar-nav .subnav { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.sidebar-nav li.open .subnav { max-height: 200px; }
+.sidebar-nav .subnav a {
+  display: block; padding: 10px 30px 10px 48px; color: #888; font-size: 13px;
+  transition: all 0.2s;
+}
+.sidebar-nav .subnav a:hover { color: #222; background: #fafaf7; }
+
+/* ===== Main Content ===== */
+.main-content {
+  width: calc(100% - 220px); margin-left: 220px; flex: 1; min-height: 100vh; overflow-x: hidden;
+}
+
+/* ===== Section Common ===== */
+.section { padding: 80px 60px; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header .title { font-size: 28px; font-weight: 300; color: #222; letter-spacing: 4px; }
+.section-header .subtitle { font-size: 13px; color: #aaa; letter-spacing: 2px; margin-top: 8px; text-transform: uppercase; }
+.section-header .divider { width: 40px; height: 2px; background: #333; margin: 15px auto 0; }
+
+/* ===== Hero Slider ===== */
+.hero-slider { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+.hero-slider .slides { position: relative; width: 100%; height: 100%; }
+.hero-slider .slide { 
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+  background-size: cover; background-position: center; opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-slider .slide.active { opacity: 1; }
+.hero-slider .slide-dots { 
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 12px; z-index: 10;
+}
+.hero-slider .slide-dots span {
+  width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4);
+  cursor: pointer; transition: all 0.3s;
+}
+.hero-slider .slide-dots span.active { background: #fff; transform: scale(1.3); }
+
+/* ===== Project Grid ===== */
+.project-full { padding: 80px 0 0 0; }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.project-card { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+.project-card .card-img { width: 100%; height: 100%; }
+.project-card .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.project-card:hover .card-img img { transform: scale(1.05); }
+.project-card .card-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.4s;
+}
+.project-card:hover .card-overlay { background: rgba(0,0,0,0.55); }
+.project-card .card-title { font-size: 18px; color: #fff; font-weight: 500; opacity: 0; transform: translateY(8px); transition: all 0.4s; text-align: center; padding: 0 20px; }
+.project-card:hover .card-title { opacity: 1; transform: translateY(0); }
+.section-more { 
+  display: block; text-align: center; margin-top: 40px; font-size: 13px; color: #888; letter-spacing: 2px;
+  transition: color 0.3s;
+}
+.section-more:hover { color: #222; }
+
+/* ===== Service Cards ===== */
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card { background: #fff; overflow: hidden; transition: background 0.35s ease, box-shadow 0.35s ease; }
+.service-card:hover { background: #222; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.service-card .card-img { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+.service-card .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.service-card:hover .card-img img { transform: scale(1.05); }
+.service-card .card-body { padding: 24px; }
+.service-card .card-index { font-size: 36px; font-weight: 300; color: #ddd; line-height: 1; margin-bottom: 8px; transition: color 0.35s ease; }
+.service-card:hover .card-index { color: rgba(255,255,255,0.12); }
+.service-card .card-title { font-size: 18px; font-weight: 500; color: #222; transition: color 0.35s ease; }
+.service-card:hover .card-title { color: #fff; }
+.service-card .card-subtitle { font-size: 12px; color: #aaa; margin-top: 4px; transition: color 0.35s ease; }
+.service-card:hover .card-subtitle { color: rgba(255,255,255,0.5); }
+.service-card .card-desc { font-size: 13px; color: #777; margin-top: 12px; line-height: 1.7; transition: color 0.35s ease; }
+.service-card:hover .card-desc { color: rgba(255,255,255,0.65); }
+.service-card .card-more { 
+  display: inline-block; margin-top: 12px; font-size: 12px; color: #999; letter-spacing: 1px;
+  transition: color 0.35s ease;
+}
+.service-card:hover .card-more { color: rgba(255,255,255,0.5); }
+
+/* ===== News Marquee ===== */
+.news-marquee { overflow: hidden; }
+.news-marquee-track {
+  display: flex; width: max-content; animation: news-scroll 35s linear infinite;
+}
+.news-marquee:hover .news-marquee-track { animation-play-state: paused; }
+@keyframes news-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.news-card { flex-shrink: 0; width: 300px; margin-right: 16px; background: #fff; overflow: hidden; transition: box-shadow 0.3s; }
+.news-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.news-card .card-img { overflow: hidden; aspect-ratio: 16/10; }
+.news-card .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.news-card:hover .card-img img { transform: scale(1.04); }
+.news-card .card-body { padding: 20px; }
+.news-card .card-date { font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 1px; }
+.news-card .card-title { font-size: 16px; color: #222; font-weight: 500; margin-top: 8px; line-height: 1.4; }
+.news-card .card-desc { font-size: 13px; color: #999; margin-top: 8px; line-height: 1.6; }
+/* ===== Team Carousel ===== */
+.team-section { background: #fafaf7; overflow: hidden; }
+.team-carousel { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 20px; }
+.team-carousel::-webkit-scrollbar { display: none; }
+.team-carousel-track { display: flex; gap: 24px; padding: 0 40px 10px; width: max-content; }
+.team-card { flex-shrink: 0; width: 300px; background: #fff; border-radius: 8px; overflow: hidden; text-align: center; padding: 32px 24px; transition: transform 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.04); cursor: default; }
+.team-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.team-card .tc-img { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 18px; }
+.team-card .tc-img img { width: 100%; height: 100%; object-fit: cover; }
+.team-card .tc-name { font-size: 18px; font-weight: 500; color: #222; letter-spacing: 1px; }
+.team-card .tc-role { font-size: 12px; color: #999; margin-top: 6px; letter-spacing: 1px; }
+.team-card .tc-desc { font-size: 13px; color: #777; margin-top: 14px; line-height: 1.7; text-align: left; }
+.team-card .tc-link { display: inline-block; margin-top: 14px; font-size: 12px; color: #333; border-bottom: 1px solid #333; letter-spacing: 1px; }
+/* ===== About Us Fullscreen ===== */
+.about-section { position: relative; min-height: 65vh; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+.about-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+.about-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 60px 20px; max-width: 700px; }
+.about-content .about-title { font-size: 28px; font-weight: 300; letter-spacing: 4px; }
+.about-content .about-divider { width: 40px; height: 2px; background: rgba(255,255,255,0.6); margin: 16px auto; }
+.about-content .about-desc { font-size: 15px; line-height: 1.9; color: rgba(255,255,255,0.9); margin-top: 20px; }
+.about-content .about-link { display: inline-block; margin-top: 24px; color: #fff; font-size: 13px; letter-spacing: 2px; border: 1px solid rgba(255,255,255,0.5); padding: 10px 28px; transition: all 0.3s; }
+.about-content .about-link:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+/* ===== Contact Split ===== */
+.contact-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh; }
+.contact-split-left { background-size: cover; background-position: center; min-height: 350px; }
+.contact-split-right { background: #fff; display: flex; align-items: center; justify-content: center; padding: 60px 48px; }
+.contact-info { max-width: 420px; }
+.contact-info .ci-logo { font-size: 22px; font-weight: 500; color: #222; letter-spacing: 3px; margin-bottom: 6px; }
+.contact-info .ci-subtitle { font-size: 12px; color: #aaa; letter-spacing: 2px; margin-bottom: 28px; }
+.contact-info .ci-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; font-size: 14px; color: #555; line-height: 1.6; }
+.contact-info .ci-item .ci-icon { width: 20px; text-align: center; color: #888; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+/* ===== Footer ===== */
+.footer { 
+  width: calc(100% - 220px); margin-left: 220px; background: #fff; border-top: 1px solid #eee; 
+  text-align: center; padding: 24px 40px; font-size: 12px; color: #888;
+}
+.footer a { color: #888; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #ddd; }
+
+/* ===== Mobile Hamburger ===== */
+.mobile-header { display: none; }
+@media (max-width: 1024px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.35s; width: 260px; }
+  .sidebar.open { transform: translateX(0); }
+  .mobile-header {
+    display: flex; align-items: center; justify-content: space-between; 
+    position: fixed; top: 0; left: 0; right: 0; height: 56px; background: #fff; 
+    border-bottom: 1px solid #eee; z-index: 1001; padding: 0 20px;
+  }
+  .mobile-header .hamburger { 
+    width: 28px; height: 20px; position: relative; cursor: pointer; display: flex;
+    flex-direction: column; justify-content: space-between;
+  }
+  .mobile-header .hamburger span {
+    display: block; height: 2px; background: #333; transition: all 0.3s;
+  }
+  .mobile-header .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .mobile-header .hamburger.open span:nth-child(2) { opacity: 0; }
+  .mobile-header .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  .mobile-header .mobile-logo { font-size: 16px; font-weight: 500; letter-spacing: 2px; color: #222; }
+  .main-content { width: 100%; margin-left: 0; padding-top: 56px; }
+  .footer { width: 100%; margin-left: 0; }
+  .section { padding: 50px 20px; }
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-grid { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: 1fr; } .news-card.span2 { grid-column: span 1; } .news-card.span2 .card-img { aspect-ratio: 16/10; } .news-card.span2 .card-title { font-size: 16px; }
+  .team-carousel-track { padding: 0 20px 10px; } .team-card { width: 260px; }
+  
+  .about-section { min-height: 50vh; }
+  .contact-split { grid-template-columns: 1fr; min-height: auto; } .contact-split-left { min-height: 280px; } .contact-split-right { padding: 40px 24px; }
+  .hero-slider { height: 50vh; }
+  .sidebar-overlay { display: none; }
+  .sidebar-overlay.show {
+    display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
+  }
+}
+@media (max-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .hero-slider { height: 40vh; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Mobile Header -->
+<div class="mobile-header">
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="mobile-logo">境作建筑</div>
+  <div style="width:28px"></div>
+</div>
+
+<!-- Left Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="/"><img src="/style/images/1507717526771.png" alt="境作建筑"></a>
+  </div>
+  <div class="sidebar-contact">
+    <div class="phone">15756226430</div>
+    <div class="email"><a href="mailto:247153593@qq.com">247153593@qq.com</a></div>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="/" class="active">首页<span class="arrow">&#9654;</span></a></li>
+    <li>
+      <a href="javascript:;">项目 / Project<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/xm/jd/">酒店</a></li>
+        <li><a href="/xm/ms/">民宿</a></li>
+        <li><a href="/xm/qt/">其它</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">关于 / About<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/gy/gsjj/">公司简介</a></li>
+        <li><a href="/gy/jztd/">境作团队</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">业务 / Service<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/yw/jdkjsj/">酒店空间设计</a></li>
+        <li><a href="/yw/mskjsj/">民宿空间设计</a></li>
+        <li><a href="/yw/qtkjsj/">其他空间设计</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">资讯 / News<span class="arrow">&#9660;</span></a>
+      <ul class="subnav">
+        <li><a href="/zx/gsxw/">公司新闻</a></li>
+        <li><a href="/zx/hydt/">行业动态</a></li>
+        <li><a href="/zx/hzmt/">合作媒体</a></li>
+      </ul>
+    </li>
+    <li><a href="/gy/lxfs/">联系 / Contact<span class="arrow">&#9654;</span></a></li>
+  </ul>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+
+<!-- Hero Slider -->
+<section class="hero-slider" id="heroSlider">
+  <div class="slides">
+    <div class="slide active" style="background-image:url(style/images/img/1507706795531.jpg)"></div>
+    <div class="slide" style="background-image:url(style/images/img/150770681415.jpg)"></div>
+    <div class="slide" style="background-image:url(style/images/img/1507706929871.jpg)"></div>
+    <div class="slide" style="background-image:url(style/images/img/1507706929872.jpg)"></div>
+  </div>
+  <div class="slide-dots">
+    <span class="active" data-index="0"></span>
+    <span data-index="1"></span>
+    <span data-index="2"></span>
+    <span data-index="3"></span>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section project-full" id="projects">
+  <div class="section-header">
+    <h2 class="title">项目展示</h2>
+    <p class="subtitle">Project</p>
+    <div class="divider"></div>
+  </div>
+  <div class="project-grid">
+    <a href="/xm/ms/44.html" class="project-card">
+      <div class="card-img"><img src="/d/file/ab46e0473f284f141ab320df99178881.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">清水连居成都2020</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/53.html" class="project-card">
+      <div class="card-img"><img src="/d/file/c322127a9b4b34a851718205c0f5771a.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">Hotel Resol Trinity Kyoto</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/ms/45.html" class="project-card">
+      <div class="card-img"><img src="/d/file/d924ce25ef58b54d5713eb2e340b3bb3.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">自在连居成都2020</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/54.html" class="project-card">
+      <div class="card-img"><img src="/d/file/42f5456c690c3d135bc372038a4f0b29.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">ONSEN RYOKAN YUEN SHINJUKU</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/ms/46.html" class="project-card">
+      <div class="card-img"><img src="/d/file/ea34bc000e1122065e8fc77c0c3f0c7b.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">贺兰山民宿2021</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/50.html" class="project-card">
+      <div class="card-img"><img src="/d/file/dc476863dd6f95b7eb0a278ede88a59f.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">眉山丹棱《幽兰雅堂》</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/ms/43.html" class="project-card">
+      <div class="card-img"><img src="/d/file/2923b1f44fb5a39685a3fbcd25859e23.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">四姑娘山《空山》2018</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/52.html" class="project-card">
+      <div class="card-img"><img src="/d/file/ff2dd5d1d24578bdf056a2a1a343b418.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">京都四条室町黎索酒店</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/48.html" class="project-card">
+      <div class="card-img"><img src="/d/file/6d77cb30e577430cb930955c6897e4be.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">成都木子酒店</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/47.html" class="project-card">
+      <div class="card-img"><img src="/d/file/8175823cae4c5d20403e92746a05f0af.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">九寨九龙酒店</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/ms/42.html" class="project-card">
+      <div class="card-img"><img src="/d/file/f0a37d2a2419d518505aea7957e4af12.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">西安《吾居下野》</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+    <a href="/xm/jd/49.html" class="project-card">
+      <div class="card-img"><img src="/d/file/a0a169b93295de63330bf2f9b07cf5b0.jpg"></div>
+      <div class="card-overlay">
+        <p class="card-title">杭州西湖亚朵酒店</p>
+        <span class="card-more">MORE</span>
+      </div>
+    </a>
+  </div>
+  <a href="/xm/" class="section-more">MORE &#8594;</a>
+</section>
+
+<!-- Service Area -->
+<section class="section" style="background:#fafaf7;">
+  <div class="section-header">
+    <h2 class="title">业务范围</h2>
+    <p class="subtitle">SERVICE AREA</p>
+    <div class="divider"></div>
+  </div>
+  <div class="service-grid">
+    <a href="/yw/jdkjsj/" class="service-card">
+      <div class="card-img"><img src="style/images/1507702577399.jpg"></div>
+      <div class="card-body">
+        <div class="card-index">01</div>
+        <div class="card-title">酒店空间设计</div>
+        <div class="card-subtitle">Hotel Space Design</div>
+        <div class="card-desc">无论改造或新建物业，通过强大的BIM技术，约20天完成设计，让您的酒店快速推向市场并盈利 ...</div>
+        <span class="card-more">MORE &#8594;</span>
+      </div>
+    </a>
+    <a href="/yw/mskjsj/" class="service-card">
+      <div class="card-img"><img src="style/images/15077026061.jpg"></div>
+      <div class="card-body">
+        <div class="card-index">02</div>
+        <div class="card-title">民宿空间设计</div>
+        <div class="card-subtitle">Design of B &amp; B space</div>
+        <div class="card-desc">让您的民宿以优的施工质量、尽快的施工速度落地，通过BIM技术管理施工现场 ...</div>
+        <span class="card-more">MORE &#8594;</span>
+      </div>
+    </a>
+    <a href="/yw/qtkjsj/" class="service-card">
+      <div class="card-img"><img src="style/images/1507702713960.jpg"></div>
+      <div class="card-body">
+        <div class="card-index">03</div>
+        <div class="card-title">其他空间设计</div>
+        <div class="card-subtitle">Other space design</div>
+        <div class="card-desc">拥有丰富多彩的文化，来自世界各地的人们在这里融合了各种风俗和传统</div>
+        <span class="card-more">MORE &#8594;</span>
+      </div>
+    </a>
+  </div>
+  <a href="/yw/qtkjsj/" class="section-more">MORE &#8594;</a>
+</section>
+
+<!-- News -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="title">新闻资讯</h2>
+    <p class="subtitle">NEWS</p>
+    <div class="divider"></div>
+  </div>
+  <div class="news-marquee">
+    <div class="news-marquee-track">
+      <a href="/zx/hzmt/56.html" class="news-card">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/57.html" class="news-card">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/58.html" class="news-card">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hydt/12.html" class="news-card">
+        <div class="card-img"><img src="/d/file/62f7d188968b36d94337bbe9246a0a78.jpg"></div>
+        <div class="card-body">
+          <div class="card-date">04-06</div>
+          <div class="card-title">我国城市地下空间利用现状与施工技术创新</div>
+          <div class="card-desc">建设生态文明是中华民族永续发展的千年大计。生态兴则文明兴...</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/59.html" class="news-card">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/56.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/57.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/58.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+      <a href="/zx/hydt/12.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="/d/file/62f7d188968b36d94337bbe9246a0a78.jpg"></div>
+        <div class="card-body">
+          <div class="card-date">04-06</div>
+          <div class="card-title">我国城市地下空间利用现状与施工技术创新</div>
+          <div class="card-desc">建设生态文明是中华民族永续发展的千年大计。生态兴则文明兴...</div>
+        </div>
+      </a>
+      <a href="/zx/hzmt/59.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+        <div class="card-body">
+          <div class="card-date">07-16</div>
+          <div class="card-title">合作媒体测试内容标题</div>
+          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section team-section" id="team">
+  <div class="section-header">
+    <h2 class="title">境作管理团队</h2>
+    <p class="subtitle">团队介绍+</p>
+    <div class="divider"></div>
+  </div>
+  <div class="team-carousel">
+    <div class="team-carousel-track">
+      <div class="team-card">
+        <div class="tc-img"><img src="style/images/150829475329.jpg"></div>
+        <div class="tc-name">境作管理团队</div>
+        <div class="tc-role">成员介绍+</div>
+        <div class="tc-desc">公司本着以人为本的设计理念，秉持专业、严谨的态度，致力于为客户提供创新、高效、切实的综合性设计与商业策划咨询服务。公司业务范围涵盖室内设计、建筑方案设计、软装陈设设计、平面设计、家具设计及策划咨询服务。设计产业类型包括旅游度假产业、星级酒店、精品酒店等，策划咨询服务包括企业品牌形象策划等。</div>
+        <a href="/gy/jztd/" class="tc-link">MORE &#8594;</a>
+      </div>
+      <div class="team-card">
+        <div class="tc-img"><img src="style/images/1508294659898.jpg"></div>
+        <div class="tc-name">鲜跃</div>
+        <div class="tc-role">合伙人 创意总监+</div>
+        <div class="tc-desc">事务所多次受邀参与国内外重要展览，于 2019 年创建境作建筑设计事务所。于 2018 年参加第 16 届威尼斯建筑双年展 FREESPACE 主题展及中国馆展览。其代表作品包括：《自在连居》度假酒店，《木子精品酒店》，《吾居下野酒店》，《喜堂会馆等》等...</div>
+        <a href="/gy/jztd/41.html" class="tc-link">MORE &#8594;</a>
+      </div>
+      <div class="team-card">
+        <div class="tc-img"><img src="style/images/1508294217508.jpg"></div>
+        <div class="tc-name">干劲松</div>
+        <div class="tc-role">合伙人 设计总监+</div>
+        <div class="tc-desc">事务所多次受邀参与国内外重要展览，于 2019 年创建境作建筑设计事务所。于 2018 年参加第 16 届威尼斯建筑双年展 FREESPACE 主题展及中国馆展览。其代表作品包括：《自在连居》度假酒店，《木子精品酒店》，《吾居下野酒店》，《喜堂会馆等》等...</div>
+        <a href="/gy/jztd/40.html" class="tc-link">MORE &#8594;</a>
+      </div>
+      <div class="team-card">
+        <div class="tc-img"><img src="style/images/1508294217509.jpg"></div>
+        <div class="tc-name">高佳乐</div>
+        <div class="tc-role">合伙人 设计总监+</div>
+        <div class="tc-desc">事务所多次受邀参与国内外重要展览，于 2019 年创建境作建筑设计事务所。于 2018 年参加第 16 届威尼斯建筑双年展 FREESPACE 主题展及中国馆展览。其代表作品包括：《自在连居》度假酒店，《木子精品酒店》，《吾居下野酒店》，《喜堂会馆等》等...</div>
+        <a href="/gy/jztd/39.html" class="tc-link">MORE &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Us -->
+<section class="about-section" id="about" style="background-image:url(style/images/img/1511250500196.jpg);">
+  <div class="about-overlay"></div>
+  <div class="about-content">
+    <h2 class="about-title">关于我们</h2>
+    <div class="about-divider"></div>
+    <p class="about-desc">成都境作建筑设计有限责任公司，专注于酒店民宿投资及设计咨询服务，从酒店选址、投资、以及设计施工一体化体系，已有数十年咨询经验。与锦江、华住、首旅如家、温德姆、希尔顿等集团深度合作，专业团队对酒店民宿业的深度研究以及行业资深经验，服务投资人超过500人。</p>
+    <a href="/gy/gsjj/" class="about-link">了解更多 &#8594;</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-split">
+  <div class="contact-split-left" style="background-image:url(style/images/img/150770230099.jpg);"></div>
+  <div class="contact-split-right">
+    <div class="contact-info">
+      <div class="ci-logo">境作建筑</div>
+      <div class="ci-subtitle">JINGZUO ARCHITECTURE DESIGN</div>
+      <div class="ci-item">
+        <span class="ci-icon">&#9906;</span>
+        <span>成都市武侯区禅茶艺术小镇5栋2F-22号</span>
+      </div>
+      <div class="ci-item">
+        <span class="ci-icon">&#9742;</span>
+        <span>15756226430</span>
+      </div>
+      <div class="ci-item">
+        <span class="ci-icon">&#9993;</span>
+        <span>247153593@qq.com</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <span>COPYRIGHT (&copy;) 2021 成都境作建筑设计有限责任公司. <span class="divider">|</span> <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="nofollow">蜀ICP备2021007531号-1</a> <span class="divider">|</span> 技术支持：<a href="https://wwww.shunking.cn" target="_blank">舜王科技</a></span>
+</footer>
+
+<script>
+(function(){
+  // === Sidebar submenu toggle ===
+  document.querySelectorAll('.sidebar-nav > li').forEach(function(li) {
+    var link = li.querySelector('a');
+    var subnav = li.querySelector('.subnav');
+    if (!subnav) return;
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = li.classList.contains('open');
+      document.querySelectorAll('.sidebar-nav > li.open').forEach(function(l) { l.classList.remove('open'); });
+      if (!isOpen) li.classList.add('open');
+    });
+  });
+
+  // === Mobile sidebar ===
+  var sidebar = document.getElementById('sidebar');
+  var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var hamburger = document.getElementById('hamburger');
+
+  function openSidebar() { sidebar.classList.add('open'); sidebarOverlay.classList.add('show'); hamburger.classList.add('open'); }
+  function closeSidebar() { sidebar.classList.remove('open'); sidebarOverlay.classList.remove('show'); hamburger.classList.remove('open'); }
+
+  hamburger.addEventListener('click', function() {
+    sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+  });
+  sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // === Hero Slider ===
+  var slides = document.querySelectorAll('.hero-slider .slide');
+  var dots = document.querySelectorAll('.hero-slider .slide-dots span');
+  var currentSlide = 0;
+  var totalSlides = slides.length;
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goToSlide(parseInt(this.getAttribute('data-index')));
+    });
+  });
+
+  setInterval(function() {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }, 4000);
+
+})();
+</script>
+
+</body>
+</html>
