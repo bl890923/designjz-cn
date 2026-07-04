@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>行业动态 - 成都境作建筑设计有限责任公司</title>
 <meta name="keywords" content="境作建筑,建筑设计,酒店设计,民宿设计">
-<meta name="description" content="成都境作建筑设计有限责任公司">
+<meta name="description" content="成都境作建筑设计有限责任公司 - 行业动态">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
@@ -16,7 +16,7 @@
 /* ===== Reset & Base ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
+body { 
   font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
   background: #f5f5f0; color: #333; line-height: 1.6; font-size: 14px;
   display: flex; flex-direction: column; min-height: 100vh;
@@ -24,74 +24,80 @@ body {
 a { text-decoration: none; color: inherit; }
 ul, ol { list-style: none; }
 img { max-width: 100%; display: block; }
+.clearfix::after { content: ""; display: table; clear: both; }
+.ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ===== Left Sidebar ===== */
 .sidebar {
   position: fixed; top: 0; left: 0; bottom: 0; width: 220px; background: #fff;
-  z-index: 100; box-shadow: 1px 0 8px rgba(0,0,0,0.04); overflow-y: auto; overflow-x: hidden;
-  display: flex; flex-direction: column;
+  border-right: 1px solid #e8e8e0; z-index: 1000; display: flex; flex-direction: column;
+  overflow-y: auto; padding: 40px 0 30px 0;
 }
-.sidebar-logo {
-  padding: 28px 20px 18px; border-bottom: 1px solid #f2f2f2;
-}
-.sidebar-logo img { width: 120px; height: auto; }
-.sidebar-nav { padding: 12px 0; flex: 1; }
-.sidebar-nav > li { position: relative; }
+.sidebar-logo { padding: 0 30px 30px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+.sidebar-logo img { width: 160px; height: auto; }
+.sidebar-contact { padding: 0 30px; margin-bottom: 30px; }
+.sidebar-contact .phone { font-size: 16px; font-weight: 600; color: #222; letter-spacing: 0.5px; }
+.sidebar-contact .email { font-size: 12px; color: #888; margin-top: 4px; }
+.sidebar-contact .email a { color: #888; text-decoration: underline; }
+
+/* Navigation */
+.sidebar-nav { flex: 1; padding: 0; }
+.sidebar-nav li { position: relative; }
 .sidebar-nav > li > a {
-  display: block; padding: 12px 24px; font-size: 13px; color: #555;
-  font-weight: 500; letter-spacing: 1px; transition: all 0.2s;
-  position: relative; white-space: nowrap;
+  display: flex; align-items: center; justify-content: space-between; 
+  padding: 14px 30px; color: #555; font-size: 14px; letter-spacing: 1px;
+  transition: all 0.25s; border-left: 3px solid transparent;
 }
-.sidebar-nav > li > a:hover { color: #222; background: #fafaf7; }
-.sidebar-nav > li > a .arrow {
-  float: right; font-size: 10px; color: #ccc; transition: transform 0.3s; margin-top: 2px;
-}
-.sidebar-nav > li.open > a .arrow { transform: rotate(90deg); }
-.sidebar-nav .subnav {
-  max-height: 0; overflow: hidden; transition: max-height 0.35s ease; background: #fafaf7;
-}
-.sidebar-nav > li.open .subnav { max-height: 300px; }
+.sidebar-nav > li > a:hover,
+.sidebar-nav > li > a.active { color: #222; background: #f9f9f5; border-left-color: #333; }
+.sidebar-nav .arrow { font-size: 10px; transition: transform 0.3s; color: #bbb; }
+.sidebar-nav li.open > a .arrow { transform: rotate(180deg); }
+
+/* Subnav */
+.sidebar-nav .subnav { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.sidebar-nav li.open .subnav { max-height: 200px; }
 .sidebar-nav .subnav a {
-  display: block; padding: 8px 40px; font-size: 12px; color: #777;
-  transition: all 0.15s;
+  display: block; padding: 10px 30px 10px 48px; color: #888; font-size: 13px;
+  transition: all 0.2s;
 }
-.sidebar-nav .subnav a:hover { color: #222; background: #f0f0eb; }
-.sidebar-nav .subnav a.active { color: #222; font-weight: 500; }
+.sidebar-nav .subnav a:hover { color: #222; background: #fafaf7; }
 
 /* ===== Main Content ===== */
 .main-content {
   width: calc(100% - 220px); margin-left: 220px; flex: 1; min-height: 100vh; overflow-x: hidden;
 }
 
+/* ===== Section Common ===== */
+.section { padding: 80px 60px; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header .title { font-size: 28px; font-weight: 300; color: #222; letter-spacing: 4px; }
+.section-header .subtitle { font-size: 13px; color: #aaa; letter-spacing: 2px; margin-top: 8px; text-transform: uppercase; }
+.section-header .divider { width: 40px; height: 2px; background: #333; margin: 15px auto 0; }
+
+
 /* ===== Breadcrumb ===== */
-.breadcrumb-bar {
-  padding: 18px 40px; background: #fff; border-bottom: 1px solid #eee;
-  font-size: 13px; color: #999; display: flex; align-items: center;
-}
-.breadcrumb-bar a { color: #666; }
+.breadcrumb-bar { padding: 18px 40px; background: #fff; border-bottom: 1px solid #eee; font-size: 13px; color: #999; }
+.breadcrumb-bar a { color: #666; margin: 0 2px; }
 .breadcrumb-bar a:hover { color: #222; }
-.breadcrumb-bar .sep { margin: 0 8px; color: #ccc; }
-.breadcrumb-bar .current { color: #222; font-weight: 500; }
+.breadcrumb-bar .sep { margin: 0 6px; color: #ccc; }
 
-/* ===== Footer ===== */
-.footer {
-  width: 100%; background: #fff; border-top: 1px solid #eee;
-  text-align: center; padding: 24px 40px; font-size: 12px; color: #888;
-}
-.footer a { color: #888; }
-.footer .divider { margin: 0 8px; color: #ddd; }
-
+/* ===== News Banner ===== */
+.news-banner { position: relative; height: 320px; background: url('http://img8.dfco.cn/designjz/style/images/1212120.jpg') center/cover no-repeat; }
+.news-banner::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+.news-banner .banner-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
+.news-banner .banner-text h1 { font-size: 36px; font-weight: 300; color: #fff; letter-spacing: 6px; }
+.news-banner .banner-text .sub { font-size: 14px; color: rgba(255,255,255,0.7); letter-spacing: 4px; margin-top: 10px; }
 
 /* ===== News Card List ===== */
-.news-card-list { max-width: 860px; margin: 0 auto; }
+.news-section { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
 .news-card {
   display: flex; align-items: flex-start; gap: 24px;
   padding: 28px 0; border-bottom: 1px solid #eee;
-  transition: all 0.25s ease; position: relative; cursor: pointer;
+  transition: all 0.25s ease; cursor: pointer;
   border-left: 3px solid transparent; padding-left: 20px; margin-left: -3px;
 }
 .news-card:hover {
-  transform: translateY(-2px);
+  transform: translateX(4px);
   border-left-color: #333;
   border-bottom-color: #ddd;
 }
@@ -105,8 +111,8 @@ img { max-width: 100%; display: block; }
 .news-card .nc-date .nc-month { font-size: 11px; opacity: 0.85; }
 .news-card .nc-body { flex: 1; min-width: 0; }
 .news-card .nc-title {
-  font-size: 18px; font-weight: 600; color: #222; margin-bottom: 8px;
-  display: block; transition: color 0.2s;
+  font-size: 17px; color: #222; margin-bottom: 6px;
+  display: block; transition: color 0.2s; font-weight: 500;
 }
 .news-card .nc-title:hover { color: #666; }
 .news-card .nc-summary {
@@ -114,63 +120,95 @@ img { max-width: 100%; display: block; }
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.news-card-empty { text-align: center; color: #999; padding: 60px 0; font-size: 15px; }
+.news-empty { text-align: center; color: #999; padding: 60px 0; font-size: 15px; }
+
+.sidebar-overlay { display: none; pointer-events: none; }
 
 @media (max-width: 1024px) {
-  .news-card-list { max-width: 100%; }
+  .news-banner { height: 220px; }
+  .news-section { padding: 40px 24px; }
   .news-card { padding: 20px 0; gap: 16px; padding-left: 12px; }
   .news-card .nc-title { font-size: 16px; }
 }
 
-/* ===== Section Header ===== */
-.section-header { text-align: center; margin-bottom: 40px; padding: 40px 20px 0; }
-.section-header h1 { font-size: 26px; font-weight: 700; color: #222; margin-bottom: 8px; }
-.section-header .sub { font-size: 13px; color: #999; letter-spacing: 2px; text-transform: uppercase; }
 
-/* ===== Hamburger ===== */
-.hamburger { display: none; }
+/* ===== Footer ===== */
+.footer { 
+  width: calc(100% - 220px); margin-left: 220px; background: #fff; border-top: 1px solid #eee; 
+  text-align: center; padding: 24px 40px; font-size: 12px; color: #888;
+}
+.footer a { color: #888; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #ddd; }
+
+/* ===== Mobile Hamburger ===== */
+.mobile-header { display: none; }
 @media (max-width: 1024px) {
-  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar { transform: translateX(-100%); transition: transform 0.35s; width: 260px; }
   .sidebar.open { transform: translateX(0); }
-  .sidebar-overlay {
-    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 99;
+  .mobile-header {
+    display: flex; align-items: center; justify-content: space-between; 
+    position: fixed; top: 0; left: 0; right: 0; height: 56px; background: #fff; 
+    border-bottom: 1px solid #eee; z-index: 1001; padding: 0 20px;
   }
-  .sidebar-overlay.show { display: block; }
+  .mobile-header .hamburger { 
+    width: 28px; height: 20px; position: relative; cursor: pointer; display: flex;
+    flex-direction: column; justify-content: space-between;
+  }
+  .mobile-header .hamburger span {
+    display: block; height: 2px; background: #333; transition: all 0.3s;
+  }
+  .mobile-header .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .mobile-header .hamburger.open span:nth-child(2) { opacity: 0; }
+  .mobile-header .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  .mobile-header .mobile-logo { font-size: 16px; font-weight: 500; letter-spacing: 2px; color: #222; }
   .main-content { width: 100%; margin-left: 0; padding-top: 56px; }
-  .breadcrumb-bar { display: none; }
-  .hamburger {
-    display: flex; position: fixed; top: 0; left: 0; right: 0; height: 56px;
-    background: #fff; z-index: 98; align-items: center; padding: 0 16px;
-    border-bottom: 1px solid #eee;
+  .footer { width: 100%; margin-left: 0; }
+  .section { padding: 50px 20px; }
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-grid { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: 1fr; } .news-card.span2 { grid-column: span 1; } .news-card.span2 .card-img { aspect-ratio: 16/10; } .news-card.span2 .card-title { font-size: 16px; }
+  .team-carousel-track { padding: 0 20px 10px; } .team-card { width: 260px; }
+  
+  .about-section { min-height: 50vh; }
+  .contact-split { grid-template-columns: 1fr; min-height: auto; } .contact-split-left { min-height: 280px; } .contact-split-right { padding: 40px 24px; }
+  .hero-slider { height: 50vh; }
+  
+  .sidebar-overlay.show {
+    display: block; pointer-events: auto; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
   }
-  .hamburger .logo-mobile { height: 28px; }
-  .hamburger .btn-toggle {
-    margin-left: auto; width: 36px; height: 36px; border: none; background: none;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    gap: 5px; cursor: pointer;
-  }
-  .hamburger .btn-toggle span {
-    display: block; width: 22px; height: 2px; background: #333; transition: all 0.3s;
-  }
-  .hamburger .btn-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-  .hamburger .btn-toggle.open span:nth-child(2) { opacity: 0; }
-  .hamburger .btn-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-  .footer { width: 100%; padding: 20px 16px; font-size: 11px; }
+}
+@media (max-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .hero-slider { height: 40vh; }
 }
 </style>
 </head>
 <body>
 
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Mobile Header -->
+<div class="mobile-header">
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="mobile-logo">境作建筑</div>
+  <div style="width:28px"></div>
+</div>
+
+<!-- Left Sidebar -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <a href="/"><img src="/style/images/1507717526771.png" alt="境作建筑"></a>
-  </div>
+  <img src="http://img8.dfco.cn/designjz/style/images/1507717526771.png" alt="境作">
+</div>
   <div class="sidebar-contact">
     <div class="phone">15756226430</div>
     <div class="email"><a href="mailto:247153593@qq.com">247153593@qq.com</a></div>
   </div>
   <ul class="sidebar-nav">
-    <li><a href="/">首页<span class="arrow">&#9654;</span></a></li>
+    <li><a href="/" class="active">首页<span class="arrow">&#9654;</span></a></li>
     <li>
       <a href="javascript:;">项目 / Project<span class="arrow">&#9660;</span></a>
       <ul class="subnav">
@@ -205,25 +243,20 @@ img { max-width: 100%; display: block; }
     <li><a href="/gy/lxfs/">联系 / Contact<span class="arrow">&#9654;</span></a></li>
   </ul>
 </aside>
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<div class="hamburger" id="hamburger">
-  <img src="/style/images/logo.png" alt="境作建筑" class="logo-mobile" onerror="this.style.display='none'">
-  <button class="btn-toggle"><span></span><span></span><span></span></button>
-</div>
 
 <main class="main-content">
-
 <div class="breadcrumb-bar">
-  <a href="/">首页</a><span class="sep">&gt;</span><span class="current">行业动态</span>
+  <a href="/">首页</a><span class="sep">></span><a href="/zx/">资讯</a><span class="sep">></span>行业动态
 </div>
 
-<section class="section">
-<div class="section-header">
-  <h1>行业动态</h1>
-  <div class="sub">Industry Trends</div>
-</div>
-  <div class="news-card-list">
+<section class="news-banner">
+  <div class="banner-text">
+    <h1>行业动态</h1>
+    <div class="sub">INDUSTRY TRENDS</div>
+  </div>
+</section>
+
+<section class="news-section">
     <a href="/zx/hydt/69.html" class="news-card">
       <div class="nc-date"><div class="nc-day">26</div><div class="nc-month">7月</div></div>
       <div class="nc-body">
@@ -343,18 +376,17 @@ img { max-width: 100%; display: block; }
         <div class="nc-summary">幕府山下·建华装饰混凝土座椅“绽放”南京最长滨江樱花道</div>
       </div>
     </a>
-  </div>
 </section>
+</main>
 
+<!-- Footer -->
 <footer class="footer">
   <span>COPYRIGHT (&copy;) 2021 成都境作建筑设计有限责任公司. <span class="divider">|</span> <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="nofollow">蜀ICP备2021007531号-1</a> <span class="divider">|</span> 技术支持：<a href="https://wwww.shunking.cn" target="_blank">舜王科技</a></span>
 </footer>
 
-</main>
-
-
 <script>
 (function(){
+// === Sidebar submenu toggle ===
   document.querySelectorAll('.sidebar-nav > li').forEach(function(li) {
     var link = li.querySelector('a');
     var subnav = li.querySelector('.subnav');
@@ -367,6 +399,7 @@ img { max-width: 100%; display: block; }
     });
   });
 
+// === Mobile sidebar ===
   var sidebar = document.getElementById('sidebar');
   var sidebarOverlay = document.getElementById('sidebarOverlay');
   var hamburger = document.getElementById('hamburger');
@@ -379,6 +412,8 @@ img { max-width: 100%; display: block; }
   });
   sidebarOverlay.addEventListener('click', closeSidebar);
 
+
+  // === Auto-highlight current nav ===
   (function(){
     var path = window.location.pathname;
     var navLinks = document.querySelectorAll('.sidebar-nav a');

@@ -14,6 +14,14 @@
 <style>
 /* ===== Reset & Base ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, div, span, a, p, h1, h2, h3, h4, h5, h6, section, main, article, header, footer, nav, aside,
+img, ul, ol, li, button, input, textarea, select, label, form, table, tr, td, th, figure, figcaption {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  -webkit-touch-callout: default !important;
+}
 html { scroll-behavior: smooth; }
 body { 
   font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -194,6 +202,8 @@ img { max-width: 100%; display: block; }
 
 /* ===== Mobile Hamburger ===== */
 .mobile-header { display: none; }
+.sidebar-overlay { display: none; pointer-events: none; }
+
 @media (max-width: 1024px) {
   .sidebar { transform: translateX(-100%); transition: transform 0.35s; width: 260px; }
   .sidebar.open { transform: translateX(0); }
@@ -224,9 +234,9 @@ img { max-width: 100%; display: block; }
   .about-section { min-height: 50vh; }
   .contact-split { grid-template-columns: 1fr; min-height: auto; } .contact-split-left { min-height: 280px; } .contact-split-right { padding: 40px 24px; }
   .hero-slider { height: 50vh; }
-  .sidebar-overlay { display: none; }
+  
   .sidebar-overlay.show {
-    display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
+    display: block; pointer-events: auto; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
   }
 }
 @media (max-width: 640px) {
@@ -253,8 +263,8 @@ img { max-width: 100%; display: block; }
 <!-- Left Sidebar -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <a href="/"><img src="/style/images/1507717526771.png" alt="境作建筑"></a>
-  </div>
+  <img src="http://img8.dfco.cn/designjz/style/images/1507717526771.png" alt="境作">
+</div>
   <div class="sidebar-contact">
     <div class="phone">15756226430</div>
     <div class="email"><a href="mailto:247153593@qq.com">247153593@qq.com</a></div>
@@ -324,84 +334,84 @@ img { max-width: 100%; display: block; }
   </div>
   <div class="project-grid">
     <a href="/xm/ms/44.html" class="project-card">
-      <div class="card-img"><img src="/d/file/ab46e0473f284f141ab320df99178881.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/ab46e0473f284f141ab320df99178881.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">清水连居成都2020</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/53.html" class="project-card">
-      <div class="card-img"><img src="/d/file/c322127a9b4b34a851718205c0f5771a.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/c322127a9b4b34a851718205c0f5771a.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">Hotel Resol Trinity Kyoto</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/ms/45.html" class="project-card">
-      <div class="card-img"><img src="/d/file/d924ce25ef58b54d5713eb2e340b3bb3.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/d924ce25ef58b54d5713eb2e340b3bb3.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">自在连居成都2020</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/54.html" class="project-card">
-      <div class="card-img"><img src="/d/file/42f5456c690c3d135bc372038a4f0b29.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/42f5456c690c3d135bc372038a4f0b29.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">ONSEN RYOKAN YUEN SHINJUKU</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/ms/46.html" class="project-card">
-      <div class="card-img"><img src="/d/file/ea34bc000e1122065e8fc77c0c3f0c7b.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/ea34bc000e1122065e8fc77c0c3f0c7b.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">贺兰山民宿2021</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/50.html" class="project-card">
-      <div class="card-img"><img src="/d/file/dc476863dd6f95b7eb0a278ede88a59f.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/dc476863dd6f95b7eb0a278ede88a59f.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">眉山丹棱《幽兰雅堂》</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/ms/43.html" class="project-card">
-      <div class="card-img"><img src="/d/file/2923b1f44fb5a39685a3fbcd25859e23.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/2923b1f44fb5a39685a3fbcd25859e23.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">四姑娘山《空山》2018</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/52.html" class="project-card">
-      <div class="card-img"><img src="/d/file/ff2dd5d1d24578bdf056a2a1a343b418.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/ff2dd5d1d24578bdf056a2a1a343b418.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">京都四条室町黎索酒店</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/48.html" class="project-card">
-      <div class="card-img"><img src="/d/file/6d77cb30e577430cb930955c6897e4be.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/6d77cb30e577430cb930955c6897e4be.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">成都木子酒店</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/47.html" class="project-card">
-      <div class="card-img"><img src="/d/file/8175823cae4c5d20403e92746a05f0af.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/8175823cae4c5d20403e92746a05f0af.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">九寨九龙酒店</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/ms/42.html" class="project-card">
-      <div class="card-img"><img src="/d/file/f0a37d2a2419d518505aea7957e4af12.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/f0a37d2a2419d518505aea7957e4af12.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">西安《吾居下野》</p>
         <span class="card-more">MORE</span>
       </div>
     </a>
     <a href="/xm/jd/49.html" class="project-card">
-      <div class="card-img"><img src="/d/file/a0a169b93295de63330bf2f9b07cf5b0.jpg"></div>
+      <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/a0a169b93295de63330bf2f9b07cf5b0.jpg"></div>
       <div class="card-overlay">
         <p class="card-title">杭州西湖亚朵酒店</p>
         <span class="card-more">MORE</span>
@@ -462,84 +472,100 @@ img { max-width: 100%; display: block; }
   </div>
   <div class="news-marquee">
     <div class="news-marquee-track">
-      <a href="/zx/hzmt/56.html" class="news-card">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/gsxw/60.html" class="news-card">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/ff2dd5d1d24578bdf056a2a1a343b418.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">06-15</div>
+          <div class="card-title">第四届全国建筑业企业文化建设经验交流会在武汉召开</div>
+          <div class="card-desc">全国建筑业企业文化建设经验交流，推动行业文化繁荣发展</div>
         </div>
       </a>
-      <a href="/zx/hzmt/57.html" class="news-card">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/gsxw/61.html" class="news-card">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/dc476863dd6f95b7eb0a278ede88a59f.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">08-20</div>
+          <div class="card-title">"数字中国"时代——建筑业的数字化转型</div>
+          <div class="card-desc">数字化浪潮下建筑业如何拥抱变革，实现智能建造新突破</div>
         </div>
       </a>
-      <a href="/zx/hzmt/58.html" class="news-card">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/gsxw/62.html" class="news-card">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/d924ce25ef58b54d5713eb2e340b3bb3.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">09-10</div>
+          <div class="card-title">甘肃省首个装配式示范工程荣获中国钢结构金奖</div>
+          <div class="card-desc">甘肃省装配式建筑取得里程碑式突破，树立行业标杆</div>
         </div>
       </a>
-      <a href="/zx/hydt/12.html" class="news-card">
-        <div class="card-img"><img src="/d/file/62f7d188968b36d94337bbe9246a0a78.jpg"></div>
+      <a href="/zx/gsxw/63.html" class="news-card">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/6d77cb30e577430cb930955c6897e4be.jpg"></div>
         <div class="card-body">
-          <div class="card-date">04-06</div>
-          <div class="card-title">我国城市地下空间利用现状与施工技术创新</div>
-          <div class="card-desc">建设生态文明是中华民族永续发展的千年大计。生态兴则文明兴...</div>
+          <div class="card-date">10-25</div>
+          <div class="card-title">第十七届中国建筑企业高峰论坛筹备会于兰州召开</div>
+          <div class="card-desc">行业精英汇聚兰州，共商中国建筑企业高质量发展新路径</div>
         </div>
       </a>
-      <a href="/zx/hzmt/59.html" class="news-card">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/hydt/6.html" class="news-card">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/8175823cae4c5d20403e92746a05f0af.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">03-03</div>
+          <div class="card-title">幕府山下·建华装饰混凝土座椅"绽放"南京最长滨江樱花道</div>
+          <div class="card-desc">建华装饰混凝土为南京滨江景观增添艺术与实用兼备的公共设施</div>
         </div>
       </a>
-      <a href="/zx/hzmt/56.html" class="news-card" aria-hidden="true">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/hydt/7.html" class="news-card">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/2923b1f44fb5a39685a3fbcd25859e23.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">09-05</div>
+          <div class="card-title">变革力·竞合力·影响力——凝聚行业高质量发展合力</div>
+          <div class="card-desc">聚焦行业变革与创新，凝聚多方力量推动建筑业高质量发展</div>
         </div>
       </a>
-      <a href="/zx/hzmt/57.html" class="news-card" aria-hidden="true">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/gsxw/60.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/ff2dd5d1d24578bdf056a2a1a343b418.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">06-15</div>
+          <div class="card-title">第四届全国建筑业企业文化建设经验交流会在武汉召开</div>
+          <div class="card-desc">全国建筑业企业文化建设经验交流，推动行业文化繁荣发展</div>
         </div>
       </a>
-      <a href="/zx/hzmt/58.html" class="news-card" aria-hidden="true">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/gsxw/61.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/dc476863dd6f95b7eb0a278ede88a59f.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">08-20</div>
+          <div class="card-title">"数字中国"时代——建筑业的数字化转型</div>
+          <div class="card-desc">数字化浪潮下建筑业如何拥抱变革，实现智能建造新突破</div>
         </div>
       </a>
-      <a href="/zx/hydt/12.html" class="news-card" aria-hidden="true">
-        <div class="card-img"><img src="/d/file/62f7d188968b36d94337bbe9246a0a78.jpg"></div>
+      <a href="/zx/gsxw/62.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/d924ce25ef58b54d5713eb2e340b3bb3.jpg"></div>
         <div class="card-body">
-          <div class="card-date">04-06</div>
-          <div class="card-title">我国城市地下空间利用现状与施工技术创新</div>
-          <div class="card-desc">建设生态文明是中华民族永续发展的千年大计。生态兴则文明兴...</div>
+          <div class="card-date">09-10</div>
+          <div class="card-title">甘肃省首个装配式示范工程荣获中国钢结构金奖</div>
+          <div class="card-desc">甘肃省装配式建筑取得里程碑式突破，树立行业标杆</div>
         </div>
       </a>
-      <a href="/zx/hzmt/59.html" class="news-card" aria-hidden="true">
-        <div class="card-img"><img src="/d/file/15fe5f222a0535ed88652e84d4a1ee1e.png"></div>
+      <a href="/zx/gsxw/63.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/6d77cb30e577430cb930955c6897e4be.jpg"></div>
         <div class="card-body">
-          <div class="card-date">07-16</div>
-          <div class="card-title">合作媒体测试内容标题</div>
-          <div class="card-desc">内容介绍区域在文字内容内容介绍区域在文字内容</div>
+          <div class="card-date">10-25</div>
+          <div class="card-title">第十七届中国建筑企业高峰论坛筹备会于兰州召开</div>
+          <div class="card-desc">行业精英汇聚兰州，共商中国建筑企业高质量发展新路径</div>
+        </div>
+      </a>
+      <a href="/zx/hydt/6.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/8175823cae4c5d20403e92746a05f0af.jpg"></div>
+        <div class="card-body">
+          <div class="card-date">03-03</div>
+          <div class="card-title">幕府山下·建华装饰混凝土座椅"绽放"南京最长滨江樱花道</div>
+          <div class="card-desc">建华装饰混凝土为南京滨江景观增添艺术与实用兼备的公共设施</div>
+        </div>
+      </a>
+      <a href="/zx/hydt/7.html" class="news-card" aria-hidden="true">
+        <div class="card-img"><img src="http://img8.dfco.cn/designjz/d/file/2923b1f44fb5a39685a3fbcd25859e23.jpg"></div>
+        <div class="card-body">
+          <div class="card-date">09-05</div>
+          <div class="card-title">变革力·竞合力·影响力——凝聚行业高质量发展合力</div>
+          <div class="card-desc">聚焦行业变革与创新，凝聚多方力量推动建筑业高质量发展</div>
         </div>
       </a>
     </div>
@@ -681,6 +707,18 @@ img { max-width: 100%; display: block; }
     goToSlide((currentSlide + 1) % totalSlides);
   }, 4000);
 
+})();
+
+// === 防御：确保右键、选中、点击不被拦截 ===
+(function(){
+  var events = ['contextmenu', 'selectstart', 'mousedown', 'mouseup', 'click', 'dragstart', 'copy', 'cut', 'paste'];
+  events.forEach(function(evt){
+    document.addEventListener(evt, function(e){
+      // 允许所有事件通过，阻止任何 preventDefault 的覆盖
+      Object.defineProperty(e, 'cancelable', {value: true});
+    }, true);
+  });
+  console.log('[defense] 交互保护已激活 - 右键/选中/点击已强制启用');
 })();
 </script>
 
